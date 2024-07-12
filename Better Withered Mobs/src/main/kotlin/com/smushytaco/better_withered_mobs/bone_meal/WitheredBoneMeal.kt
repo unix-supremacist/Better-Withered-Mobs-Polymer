@@ -1,9 +1,11 @@
 package com.smushytaco.better_withered_mobs.bone_meal
+import eu.pb4.factorytools.api.item.AutoModeledPolymerItem
 import net.minecraft.block.Blocks
 import net.minecraft.item.Item
 import net.minecraft.item.ItemUsageContext
+import net.minecraft.item.Items
 import net.minecraft.util.ActionResult
-class WitheredBoneMeal(settings: Settings) : Item(settings) {
+class WitheredBoneMeal(settings: Settings) : Item(settings), AutoModeledPolymerItem {
     override fun useOnBlock(context: ItemUsageContext): ActionResult {
         return if (context.world.getBlockState(context.blockPos).block == Blocks.WARPED_NYLIUM && context.world.getBlockState(context.blockPos.up()).block == Blocks.AIR ||
             context.world.getBlockState(context.blockPos).block == Blocks.CRIMSON_NYLIUM && context.world.getBlockState(context.blockPos.up()).block == Blocks.AIR
@@ -21,5 +23,9 @@ class WitheredBoneMeal(settings: Settings) : Item(settings) {
         } else {
             ActionResult.FAIL
         }
+    }
+
+    override fun getPolymerItem(): Item {
+        return Items.STICK;
     }
 }

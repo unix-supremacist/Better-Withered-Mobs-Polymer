@@ -12,9 +12,9 @@ import net.minecraft.util.Identifier
 object PotionOfDecay {
     private fun register(name: String, potion: Potion): RegistryEntry<Potion> = Registry.registerReference(Registries.POTION, Identifier.of(BetterWitheredMobs.MOD_ID, name), potion)
     fun registerPotions() {
-        POTION_OF_DECAY = register("potion_of_decay", Potion(StatusEffectInstance(StatusEffects.WITHER, 3600)))
-        LONG_POTION_OF_DECAY = register("long_potion_of_decay", Potion("potion_of_decay", StatusEffectInstance(StatusEffects.WITHER, 9600)))
-        STRONG_POTION_OF_DECAY = register("strong_potion_of_decay", Potion("potion_of_decay", StatusEffectInstance(StatusEffects.WITHER, 1800, 1)))
+        POTION_OF_DECAY = register("potion_of_decay", SimplePotion(null, StatusEffectInstance(StatusEffects.WITHER, 3600)))
+        LONG_POTION_OF_DECAY = register("long_potion_of_decay", SimplePotion("potion_of_decay", StatusEffectInstance(StatusEffects.WITHER, 9600)))
+        STRONG_POTION_OF_DECAY = register("strong_potion_of_decay", SimplePotion("potion_of_decay", StatusEffectInstance(StatusEffects.WITHER, 1800, 1)))
 
     }
     fun createPotionRecipes(builder: BrewingRecipeRegistry.Builder) {

@@ -10,6 +10,7 @@ group = project.extra["maven_group"] as String
 repositories {
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
+    maven("https://maven.nucleoid.xyz")
 }
 dependencies {
     minecraft("com.mojang", "minecraft", project.extra["minecraft_version"] as String)
@@ -18,6 +19,11 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api", "fabric-api", project.extra["fabric_version"] as String)
     modImplementation("net.fabricmc", "fabric-language-kotlin", project.extra["fabric_language_kotlin_version"] as String)
     modImplementation("com.terraformersmc", "modmenu", project.extra["mod_menu_version"] as String)
+    modImplementation(include("eu.pb4", "polymer-core", project.extra["polymer_version"] as String))
+    modImplementation(include("eu.pb4", "polymer-virtual-entity", project.extra["polymer_version"] as String))
+    modImplementation(include("eu.pb4", "polymer-blocks", project.extra["polymer_version"] as String))
+    modImplementation(include("eu.pb4", "polymer-resource-pack", project.extra["polymer_version"] as String))
+    modImplementation(include("eu.pb4", "factorytools", project.extra["factory_version"] as String))
     modApi("me.shedaniel.cloth", "cloth-config-fabric", project.extra["cloth_config_version"] as String) { exclude("net.fabricmc.fabric-api") }
 }
 tasks {
